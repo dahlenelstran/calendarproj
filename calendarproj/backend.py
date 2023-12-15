@@ -1,11 +1,11 @@
 # STORING THE EVENTS 
     
-eventStorage = {} 
+eventStorage = []
 
 # DEFINING CLASSES
 
 ## event superclass defintion
-        
+
 class Event():
     def __init__(self, title, day, startTime, endTime, description, people, completion, section):
         self.title = title
@@ -24,42 +24,35 @@ class Task(Event):
         self.title = title
         self.completion = completion
         self.section = section
-
-
-# CREATING NEW EVENTS AND TASKS
-        
-## create a new event function
-        
-def newEvent(title, day, startTime, endTime, description, people, completion, section):
-    key = title
-    value = Event(title, day, startTime, endTime, description, people, completion, section)
-    eventStorage[key] = value
-        
-## create a new task function
     
-def newTask(title, completion, section):
-    key = title
-    value = Event(title, completion, section)
-    eventStorage[key] = value
-        
-# DEFINING FUNCTIONS TO BE ENACTED ON EVENTS AND TASKS
+    def changeTitle(self, title):
+        self.title = title
+    
+    def changeDay(self, day):
+        self.day = day
+    
+    def changeStartTIme(self, startTime):
+        self.startTime = startTime
+    
+    def changeEndTime(self, endTime):
+        self.endTime = endTime
+    
+    def changeDescription(self, description):
+        self.description = description
+    
+    def changePeople(self, people):
+        self.people = people
 
-## change title
+    def changeCompletion(self):
+        self.completion = not self.completion
     
-## change day
+    def changeSection(self, section):
+        self.section = section
     
-## change start time
 
-## change end time
-
-## change people 
-    
-## mark completed
-
-## add people
-    
-## change section
-    
-## delete event
+def deleteEvent(Event):
+    index = eventStorage.index(Event)
+    eventStorage.pop(index)
     
 # COLOR CHANGING FUNCTIONS
+# ^ will need to be implemented after frontend and backend are implemented together
